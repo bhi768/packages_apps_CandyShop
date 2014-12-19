@@ -802,4 +802,11 @@
     <string name="file_header_provider_title">Custom image</string>
     <string name="file_header_provider" translatable="false">file</string>
 
+    <!-- Theming -->
+    <string name="theme_main">Theming</string>
+    <string name="theme_title">Theme settings</string>
+    <string name="theme_summary">Set up theme options</string>
+    <string name="accent_color">Accent color</string>
+    <string name="system_colors">Colors</string>
+
 </resources>
