@@ -38,4 +38,31 @@
         android:title="@string/notifications_category_title" >
 
     </PreferenceCategory>-->
+
+    <PreferenceCategory
+        android:key="incall_vib_options"
+        android:title="@string/incall_vibration_category" >
+
+        <Preference
+            android:key="incall_notification_options"
+            android:title="@string/incall_vibration_options_title"
+            android:summary="@string/incall_vibration_options_summary"
+            android:fragment="org.candy.candyshop.fragments.DialerSettings" />
+
+        <org.candy.candyshop.preference.SystemSettingSwitchPreference
+            android:key="vibrate_on_connect"
+            android:title="@string/incall_vibrate_connect_title"
+            android:defaultValue="true" />
+
+        <org.candy.candyshop.preference.SystemSettingSwitchPreference
+            android:key="vibrate_on_callwaiting"
+            android:title="@string/incall_vibrate_call_wait_title"
+            android:defaultValue="true" />
+
+        <org.candy.candyshop.preference.SystemSettingSwitchPreference
+            android:key="vibrate_on_disconnect"
+            android:title="@string/incall_vibrate_disconnect_title"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
