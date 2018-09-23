@@ -33,10 +33,15 @@
 
     </PreferenceCategory>-->
 
-    <!--<PreferenceCategory
+    <PreferenceCategory
         android:key="statusbar_notifications"
         android:title="@string/statusbar_notifications_title" >
 
-    </PreferenceCategory>-->
-
+       <Preference
+           android:key="network_traffic"
+           android:title="@string/traffic_title"
+           android:summary="@string/traffic_summary"
+           android:fragment="org.candy.candyshop.fragments.NetworkTraffic" />
+      
+   </PreferenceCategory>
 </PreferenceScreen>
