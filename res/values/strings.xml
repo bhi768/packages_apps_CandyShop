@@ -141,4 +141,7 @@
     <string name="changelog_summary">See some of the recent commits.</string>
     <string name="changelog_error">Unable to load changelog</string>
 
+    <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_title">VoLTE icon</string>
+    <string name="volte_icon_summary">Display VoLTE icon</string>
 </resources>
