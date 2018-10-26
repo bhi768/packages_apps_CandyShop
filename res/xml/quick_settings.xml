@@ -77,6 +77,16 @@
             android:defaultValue="true"/>
 
     <PreferenceCategory
+        android:title="@string/qs_panel_alpha_category"/>
+
+			<org.candy.candyshop.preference.CustomSeekBarPreference
+				android:key="qs_panel_alpha"
+				android:title="@string/qs_panel_alpha_title"
+				android:max="255"
+				settings:min="0"
+				settings:units="" />
+
+    <PreferenceCategory
         android:key="quick_settings_animations"
         android:title="@string/qs_animation_options_title"/>
 

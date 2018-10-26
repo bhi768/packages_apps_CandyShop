@@ -770,4 +770,8 @@
     <string name="lockscreen_cover_filter_blur">Blur</string>
     <string name="lockscreen_cover_filter_grayblur">Grayscale and blurred</string>
 
+    <!-- QuickSettings Panel Transparency -->
+    <string name="qs_panel_alpha_category">Advanced panel theming</string>
+    <string name="qs_panel_alpha_title">QS panel opacity</string>
+
 </resources>
