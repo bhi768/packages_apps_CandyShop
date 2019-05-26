@@ -808,5 +808,6 @@
     <string name="theme_summary">Set up theme options</string>
     <string name="accent_color">Accent color</string>
     <string name="system_colors">Colors</string>
+    <string name="base_theme">Base theme color</string>
 
 </resources>
