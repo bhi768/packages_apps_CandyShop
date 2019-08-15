@@ -26,6 +26,12 @@
         android:layout="@layout/tab_header_preference_category"
         android:title="@string/statusbar_aisle_header" />
 
+    <Preference
+        android:key="custom_header"
+        android:fragment="org.candy.candyshop.fragments.CustomHeaders"
+        android:title="@string/custom_headers_title"
+        android:summary="@string/custom_headers_summary" />
+
     <PreferenceCategory
         android:id="@+id/qs_category"
         android:key="quick_settings_category"
