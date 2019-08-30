@@ -45,6 +45,15 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
+import com.android.settings.core.BasePreferenceController;
+import com.android.settings.core.PreferenceControllerMixin;
+import com.android.settings.widget.VideoPreference;
+import com.android.settingslib.core.lifecycle.LifecycleObserver;
+import com.android.settingslib.core.lifecycle.events.OnCreate;
+import com.android.settingslib.core.lifecycle.events.OnPause;
+import com.android.settingslib.core.lifecycle.events.OnResume;
+import com.android.settingslib.core.lifecycle.events.OnSaveInstanceState;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -65,7 +74,6 @@ public class StockNavbar extends SettingsPreferenceFragment implements
     private SwitchPreference mFullGestureMode;
     private SwitchPreference mFullGestureModeDt2s;
 
-    private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
 
     @Override
@@ -74,32 +82,27 @@ public class StockNavbar extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.stock_navbar);
 
         mGestureSwipeUp = (SwitchPreference) findPreference(GESTURE_SWIPE_UP);
-        boolean hasSwipe = Settings.Secure.getInt(getContentResolver(),
+        boolean swipeUpNavEnabled = Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED,
                 ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
-        updateSwipeUpGestureNav(hasSwipe);
+        mGestureSwipeUp.setChecked(swipeUpNavEnabled);
         mGestureSwipeUp.setOnPreferenceChangeListener(this);
 
         mFullGestureMode = (SwitchPreference) findPreference(FULL_GESTURE_MODE);
-        boolean fullGestureMode = Settings.System.getInt(getContentResolver(),
+        boolean fullGestureMode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.FULL_GESTURE_NAVBAR,
                 ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
-        updateSwipeUpGestureNav(fullGestureMode);
+        mFullGestureMode.setChecked(fullGestureMode);
         mFullGestureMode.setOnPreferenceChangeListener(this);
 
         mFullGestureModeDt2s = (SwitchPreference) findPreference(FULL_GESTURE_MODE_DT2S);
-        boolean fullGestureModeDt2s = Settings.System.getInt(getContentResolver(),
+        boolean fullGestureModeDt2s = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.FULL_GESTURE_NAVBAR_DT2S,
                 ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
-        updateSwipeUpGestureNav(fullGestureModeDt2s);
+        mFullGestureModeDt2s.setChecked(fullGestureModeDt2s);
         mFullGestureModeDt2s.setOnPreferenceChangeListener(this);
 
         mHandler = new Handler();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 
     @Override
@@ -107,40 +110,35 @@ public class StockNavbar extends SettingsPreferenceFragment implements
         super.onPause();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference.equals(mGestureSwipeUp)) {
             boolean swipeUpNavEnabled = ((Boolean)objValue);
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED,
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED,
                     swipeUpNavEnabled ? 1 : 0);
-            updateSwipeUpGestureNav(swipeUpNavEnabled);
+            mGestureSwipeUp.setChecked(swipeUpNavEnabled);
             return true;
         } else if (preference.equals(mFullGestureMode)) {
             boolean fullGestureMode = ((Boolean)objValue);
-            Settings.System.putInt(getContentResolver(), Settings.System.FULL_GESTURE_NAVBAR,
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.FULL_GESTURE_NAVBAR,
                     fullGestureMode ? 1 : 0);
-            updateFullGestureNav(fullGestureMode);
+            mFullGestureMode.setChecked(fullGestureMode);
             return true;
         } else if (preference.equals(mFullGestureModeDt2s)) {
             boolean fullGestureModeDt2s = ((Boolean)objValue);
-            Settings.System.putInt(getContentResolver(), Settings.System.FULL_GESTURE_NAVBAR_DT2S,
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.FULL_GESTURE_NAVBAR_DT2S,
                     fullGestureModeDt2s ? 1 : 0);
-            updateFullGestureNavD2ts(fullGestureModeDt2s);
+            mFullGestureModeDt2s.setChecked(fullGestureModeDt2s);
             return true;
         }
         return false;
-    }
-
-    private void updateSwipeUpGestureNav(boolean swipeUpNavEnabled) {
-        mGestureSwipeUp.setChecked(swipeUpNavEnabled);
-    }
-
-    private void updateFullGestureNav(boolean fullGestureMode) {
-        mFullGestureMode.setChecked(fullGestureMode);
-    }
-
-    private void updateFullGestureNavD2ts(boolean fullGestureModeDt2s) {
-        mFullGestureModeDt2s.setChecked(fullGestureModeDt2s);
     }
 
     @Override

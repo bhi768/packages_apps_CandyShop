@@ -36,18 +36,6 @@
             app:allowDividerAbove="true"
             android:defaultValue="false"  />
 
-        <org.candy.candyshop.preference.SystemSettingSwitchPreference
-            android:key="pixel_nav_animation"
-            android:title="@string/pixel_navbar_anim_title"
-            android:summary="@string/pixel_navbar_anim_summary"
-            android:defaultValue="false"  />
-
-        <org.candy.candyshop.preference.SystemSettingSwitchPreference
-            android:key="one_hand_mode_enabled"
-            android:title="@string/one_hand_mode_title"
-            android:summary="@string/one_hand_mode_summary"
-            android:defaultValue="false" />
-
         <SwitchPreference
             android:key="full_gesture_mode"
             android:title="@string/full_gesture_mode_title"
@@ -64,6 +52,18 @@
             app:keywords="@string/keywords_gesture"
             app:controller="com.android.settings.gestures.SwipeUpPreferenceController"
             app:allowDividerAbove="true" />
+
+        <org.candy.candyshop.preference.SystemSettingSwitchPreference
+            android:key="pixel_nav_animation"
+            android:title="@string/pixel_navbar_anim_title"
+            android:summary="@string/pixel_navbar_anim_summary"
+            android:defaultValue="false"  />
+
+        <org.candy.candyshop.preference.SystemSettingSwitchPreference
+            android:key="one_hand_mode_enabled"
+            android:title="@string/one_hand_mode_title"
+            android:summary="@string/one_hand_mode_summary"
+            android:defaultValue="false" />
 
         <Preference
             android:title="@string/navbar_tuner_title"
