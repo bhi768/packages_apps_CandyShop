@@ -39,4 +39,6 @@
     <color name="qs_tile_icon_active">#FFFFFFFF</color>
     <color name="qs_tile_icon_inactive">#FF656565</color>
 
+    <!-- Default accent color - Candy apple red #ff0d00 -->
+    <color name="candy_default">#ff0d00</color>
 </resources>

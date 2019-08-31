@@ -54,7 +54,7 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
 
     private OverlayManagerWrapper mOverlayService;
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
-    private int mDefaultColor = -1;
+    private static final String mDefaultColor = "ff0d00"; // Candy apple red
 
     public interface OnColorChangedListener {
         void onColorChanged(int color);
@@ -119,12 +119,10 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
 
         if (mResetButton != null) {
             mResetButton.setOnClickListener(v -> {
-                String text = mHex.getText().toString();
+                String text = mDefaultColor;
                 try {
-                    SystemProperties.set(ACCENT_COLOR_PROP, "-1");
-                    mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
-                    mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                    mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+                    int newColor = ColorPickerPreference.convertToColorInt(text);
+                    mColorPicker.setColor(newColor, true);
                 } catch (Exception ignored) {
                 }
             });
@@ -180,7 +178,7 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.new_color_panel) {
+        if (v.getId() == R.id.new_color_panel || v.getId() == R.id.enter) {
             if (mListener != null) {
                 mListener.onColorChanged(mNewColor.getColor());
             }
