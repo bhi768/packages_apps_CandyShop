@@ -89,14 +89,14 @@ public class StockNavbar extends SettingsPreferenceFragment implements
         mGestureSwipeUp.setOnPreferenceChangeListener(this);
 
         mFullGestureMode = (SwitchPreference) findPreference(FULL_GESTURE_MODE);
-        boolean fullGestureMode = Settings.System.getIntForUser(getContentResolver(),
+        boolean fullGestureMode = Settings.System.getInt(getContentResolver(),
                 Settings.System.FULL_GESTURE_NAVBAR,
                 ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
         mFullGestureMode.setChecked(fullGestureMode);
         mFullGestureMode.setOnPreferenceChangeListener(this);
 
         mFullGestureModeDt2s = (SwitchPreference) findPreference(FULL_GESTURE_MODE_DT2S);
-        boolean fullGestureModeDt2s = Settings.System.getIntForUser(getContentResolver(),
+        boolean fullGestureModeDt2s = Settings.System.getInt(getContentResolver(),
                 Settings.System.FULL_GESTURE_NAVBAR_DT2S,
                 ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
         mFullGestureModeDt2s.setChecked(fullGestureModeDt2s);
