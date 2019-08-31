@@ -22,7 +22,10 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.SystemProperties;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -31,6 +34,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.android.settings.R;
+
+import com.android.settings.wrapper.OverlayManagerWrapper;
+import com.android.settings.wrapper.OverlayManagerWrapper.OverlayInfo;
 
 public class ColorPickerDialog extends AlertDialog implements ColorPickerView.OnColorChangedListener, View.OnClickListener {
 
@@ -45,6 +51,10 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
     private Context mContext;
 
     private OnColorChangedListener mListener;
+
+    private OverlayManagerWrapper mOverlayService;
+    private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
+    private static final String mDefaultColor = "ff0d00"; // Candy apple red
 
     public interface OnColorChangedListener {
         void onColorChanged(int color);
@@ -81,6 +91,7 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
 
         mHex = layout.findViewById(R.id.hex);
         ImageButton mSetButton = layout.findViewById(R.id.enter);
+        ImageButton mResetButton = layout.findViewById(R.id.reset);
 
         ((LinearLayout) mOldColor.getParent()).setPadding(Math.round(mColorPicker.getDrawingOffset()),
                 0, Math.round(mColorPicker.getDrawingOffset()), 0);
@@ -106,6 +117,16 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
             });
         }
 
+        if (mResetButton != null) {
+            mResetButton.setOnClickListener(v -> {
+                String text = mDefaultColor;
+                try {
+                    int newColor = ColorPickerPreference.convertToColorInt(text);
+                    mColorPicker.setColor(newColor, true);
+                } catch (Exception ignored) {
+                }
+            });
+        }
         setView(layout);
     }
 
@@ -157,7 +178,7 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.new_color_panel) {
+        if (v.getId() == R.id.new_color_panel || v.getId() == R.id.enter) {
             if (mListener != null) {
                 mListener.onColorChanged(mNewColor.getColor());
             }

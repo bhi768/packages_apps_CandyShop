@@ -29,34 +29,36 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:layout_marginTop="6dp"
-        android:gravity="center_vertical"
+        android:gravity="bottom"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="2dp"
             android:layout_alignParentStart="true"
             android:text="@string/dialog_color_picker"
             android:textStyle="bold"
-            android:textSize="36sp" />
-
-        <ImageButton
-            android:id="@+id/enter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:background="@android:color/transparent"
-            android:gravity="center"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_action_set" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/hex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@id/enter"
+            android:layout_alignParentEnd="true"
+            android:paddingBottom="8dp"
             android:hint="@string/hex_hint" />
+
+        <ImageButton
+            android:id="@+id/enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            android:gravity="end"
+            android:layout_toStartOf="@id/hex"
+            android:src="@drawable/ic_action_set" />
 
     </RelativeLayout>
 
@@ -66,27 +68,46 @@
         android:layout_height="wrap_content"
         android:tag="portrait" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="end"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
-        <net.margaritov.preference.colorpicker.ColorPickerPanelView
-            android:id="@+id/old_color_panel"
+        <ImageButton
+            android:id="@+id/reset"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginTop="10dp"
+            android:tint="@color/candy_default"
+            android:visibility="visible"
+            android:gravity="start"
+            android:src="@drawable/ic_candy_40_alpha" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPanelView
-            android:id="@+id/new_color_panel"
-            android:layout_width="40dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginStart="8dp"  />
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
-    </LinearLayout>
+            <net.margaritov.preference.colorpicker.ColorPickerPanelView
+                android:id="@+id/old_color_panel"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
 
+            <net.margaritov.preference.colorpicker.ColorPickerPanelView
+                android:id="@+id/new_color_panel"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"  />
+
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
