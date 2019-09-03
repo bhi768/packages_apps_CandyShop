@@ -231,8 +231,8 @@
     <string name="systemui_theme_style_blackaf">Black Licorice</string>
     <string name="applying_theme_toast">Applying sweetness, please wait...</string>
     <string name="theme_applied_toast">Sweetness applied!</string>
-    <string name="disable_themes_installed_title">Candy sweeteners are unavailable to avoid conflicts with Substratum. Uninstall it if you wish to use the built-in Candy sweeteners instead.</string>
-    <string name="disable_accents_installed_title">Flavor picker is unavailable to avoid conflicts with Substratum. Uninstall it if you wish to use the Candy flavor picker.</string>
+    <string name="disable_themes_installed_title">Candy sweetness is unavailable to avoid conflicts with Substratum and/or Swift Installer. Uninstall these if you wish to use the built-in Candy sweetness.</string>
+    <string name="disable_accents_installed_title">Candy coating is unavailable to avoid conflicts with Substratum and/or Swift Installer. Uninstall these if you wish to use built-in Candy coatings.</string>
     <string name="accent_picker_dialog_title">Select a Candy accent color</string>
     <string name="theme_accent_picker_title">Color</string>
     <string name="theme_accent_picker_summary">Select Candy color</string>
