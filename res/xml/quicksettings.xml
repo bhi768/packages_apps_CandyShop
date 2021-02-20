@@ -22,6 +22,12 @@
         android:title="@string/quicksettings_aisle_header" />
 
    <PreferenceCategory
+     com.android.settings.candy.SystemSettingSwitchPreference
+        android:key="qs_tile_title_visibility"
+        android:title="@string/qs_tile_title_visibility_title"
+        android:defaultValue="true" />
+
+   <PreferenceCategory
         android:key="qs_columns_rows_category"
         android:title="@string/qs_columns_rows_category_title" >
         <com.android.settings.candy.CustomSystemSeekBarPreference
