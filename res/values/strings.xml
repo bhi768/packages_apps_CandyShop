@@ -146,10 +146,11 @@
     <string name="notification_headers_title">Notification Headers</string>
     <string name="notification_headers_summary">Show headers in the notification shade\nRequires a SystemUI restart</string>
 
-    <!-- Statusbar net monitor -->
+  <!-- Statusbar net monitor -->
     <string name="traffic_title">Traffic indicators</string>
     <string name="network_traffic_state_title">Network traffic</string>
-    <string name="network_traffic_location">Show net activity</string>
+    <string name="network_traffic">Network traffic</string>
+    <string name="network_traffic_location">Traffic indicator placement</string>
     <string name="traffic_disabled">Disabled</string>
     <string name="traffic_statusbar">Statusbar</string>
     <string name="traffic_expanded_statusbar">Expanded header</string>
@@ -157,9 +158,11 @@
     <string name="network_traffic_arrow">Show arrows</string>
     <string name="network_traffic_arrow_summary">Show the network traffic indicator arrows</string>
     <string name="network_traffic_type">Select net activity type</string>
-    <string name="show_network_traffic_up">Uplink</string>
-    <string name="show_network_traffic_down">Downlink</string>
-    <string name="show_network_traffic_all">Uplink and Downlink</string>
+    <string name="show_network_traffic_combined">Combined (Upload + Download)</string>
+    <string name="show_network_traffic_dynamic">Dynamic</string>
+    <string name="show_network_traffic_up">Upload</string>
+    <string name="show_network_traffic_down">Download</string>
+    <string name="show_network_traffic_all">Both</string>
     <string name="network_traffic_layout">Activity layout</string>
     <string name="network_traffic_layout_h">Horizontal</string>
     <string name="network_traffic_layout_v">Verticle</string>
@@ -181,5 +184,11 @@
     <!-- Lockscreen battery info indicator  -->
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
     <string name="lockscreen_battery_info_summary">Display negociated charger max current and voltage and battery temperature on lockscreen while charging</string>
+
+    <!-- Quick QS pulldown -->
+    <string name="status_bar_quick_qs_pulldown">Quick QS pulldown</string>
+    <string name="quick_pulldown_none">Disabled</string>
+    <string name="quick_pulldown_right">Pulldown statusbar from right side</string>
+    <string name="quick_pulldown_left">Pulldown statusbar from left side</string>
 
 </resources>
