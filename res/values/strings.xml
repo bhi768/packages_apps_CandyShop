@@ -178,4 +178,8 @@
     <string name="lockscreen_media_art_title">Lockscreen media art</string>
     <string name="lockscreen_media_art_summary">Display media cover art when playing music</string>
 
+    <!-- Lockscreen battery info indicator  -->
+    <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
+    <string name="lockscreen_battery_info_summary">Display negociated charger max current and voltage and battery temperature on lockscreen while charging</string>
+
 </resources>
