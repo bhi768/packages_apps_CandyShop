@@ -50,8 +50,8 @@ import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.android.settings.candy.CustomSeekBarPreference;
-import com.android.settings.candy.SystemSettingSwitchPreference;
+import org.candy.candyshop.preference.CustomSeekBarPreference;
+import org.candy.candyshop.preference.SystemSettingSwitchPreference;
 
 import java.util.Arrays;
 import java.util.List;

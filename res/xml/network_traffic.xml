@@ -39,20 +39,20 @@
         android:entryValues="@array/network_traffic_layout_values"
         android:persistent="false" />
 
-    <com.android.settings.candy.CustomSeekBarPreference
+    <org.candy.candyshop.preference.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold_title"
         android:max="10"
         settings:min="0"
         settings:units="" />
 
-    <com.android.settings.candy.SystemSettingSwitchPreference
+    <org.candy.candyshop.preference.SystemSettingSwitchPreference
         android:key="network_traffic_arrow"
         android:title="@string/network_traffic_arrow"
         android:summary="@string/network_traffic_arrow_summary"
         android:defaultValue="true" />
 
-    <com.android.settings.candy.CustomSeekBarPreference
+    <org.candy.candyshop.preference.CustomSeekBarPreference
         android:key="network_traffic_font_size"
         android:title="@string/nettraf_font_size"
         android:max="60"

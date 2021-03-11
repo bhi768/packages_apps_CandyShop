@@ -21,7 +21,7 @@
         android:key="lockscreen"
         android:layout="@layout/tab" >
 
-    <com.android.settings.candy.SystemSettingSwitchPreference
+    <org.candy.candyshop.preference.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"
         android:summary="@string/lockscreen_battery_info_summary"
@@ -36,7 +36,7 @@
         android:key="media_options_category"
         android:title="@string/media_options_category_title" >
         android:order="999">
-            <com.android.settings.candy.SecureSettingSwitchPreference
+            <org.candy.candyshop.preference.SecureSettingSwitchPreference
                 android:key="lockscreen_media_metadata"
                 android:title="@string/lockscreen_media_art_title"
                 android:summary="@string/lockscreen_media_art_summary"
